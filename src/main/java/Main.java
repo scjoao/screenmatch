@@ -1,3 +1,6 @@
+import dev.scjoao.screenmatch.calculos.CalculadoraDeTempo;
+import dev.scjoao.screenmatch.calculos.FiltroRecomendacao;
+import dev.scjoao.screenmatch.modelos.Episodio;
 import dev.scjoao.screenmatch.modelos.Filme;
 import dev.scjoao.screenmatch.modelos.Serie;
 
@@ -28,5 +31,17 @@ public class Main {
 
         System.out.println("Duração para maratonar: " + minhaSerie.getDuracaoEmMinutos());
 
+        CalculadoraDeTempo calculadoraDeTempo = new CalculadoraDeTempo();
+        calculadoraDeTempo.inclui(meuFilme);
+        System.out.println("Tempo: " + calculadoraDeTempo.getTempoTotal());
+
+        FiltroRecomendacao filtroRecomendacao = new FiltroRecomendacao();
+        filtroRecomendacao.filtra(meuFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(7);
+        episodio.setSerie(minhaSerie);
+        episodio.setTotalVizualizacoes(12);
+        filtroRecomendacao.filtra(episodio);
     }
 }
