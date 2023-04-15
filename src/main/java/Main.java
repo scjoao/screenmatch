@@ -4,6 +4,8 @@ import dev.scjoao.screenmatch.modelos.Episodio;
 import dev.scjoao.screenmatch.modelos.Filme;
 import dev.scjoao.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
@@ -16,6 +18,17 @@ public class Main {
         meuFilme.avalia(10.0);
         meuFilme.avalia(4.0);
         meuFilme.avalia(7.0);
+
+        Filme meuFilme2 = new Filme();
+        meuFilme2.setNome("Super Mario");
+        meuFilme2.setAnoDeLancamento(2013);
+        meuFilme2.setDuracaoEmMinutos(90);
+        meuFilme2.getDuracaoEmMinutos();
+        meuFilme2.exibeFichaTecnica();
+
+        meuFilme2.avalia(10.0);
+        meuFilme2.avalia(4.0);
+        meuFilme2.avalia(7.0);
 
         System.out.println(meuFilme.getSomadasAvaliacoes());
         System.out.println("N° de avaliações: " + meuFilme.getTotalDeAvaliacoes());
@@ -43,5 +56,11 @@ public class Main {
         episodio.setSerie(minhaSerie);
         episodio.setTotalVizualizacoes(12);
         filtroRecomendacao.filtra(episodio);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(meuFilme2);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
     }
 }
